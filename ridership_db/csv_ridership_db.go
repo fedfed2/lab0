@@ -41,7 +41,7 @@ func (c *CsvRidershipDB) GetRidership(lineId string) ([]int64, error) {
 		return nil, err
 	}
 
-	var values [9]int64
+	values := make([]int64, c.num_intervals)
 	for _, row := range rows[1:] {
 		timePeriodID := ""
 		if row[0] == lineId {
